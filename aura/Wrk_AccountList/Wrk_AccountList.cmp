@@ -1,0 +1,33 @@
+<aura:component controller="AccountLocator">
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}" />
+   
+    <aura:registerEvent name="accountsLoaded" type="c:AccountsLoaded"/>
+    <aura:registerEvent name="selectAccount" type="c:SelectAccount" />
+    
+    <aura:attribute name="accounts" type="Account[]" />
+    <div class="slds-box .slds-box--small slds-theme--default slds-p-around--large">
+    <ul class="slds-has-dividers--bottom-space">
+    <aura:iteration items="{!v.accounts}" var="account" indexVar="i" >
+        <li id="{!i}" class="slds-item" onclick="{!c.selectAccount}">
+            <div class="slds-tile slds-media"> 
+                <lightning:icon class="slds-media__figure" iconName="standard:account" size="small" />           
+                <div class="slds-media__body">
+                   <h3 class="slds-truncate" title="accountName"><a href="javascript:void(0);">  
+                       {!account.Name}
+                       </a>
+                    </h3>
+                    <div class="slds-tile__detail slds-text-body--small">
+                      <ul class="slds-list--horizontal slds-has-dividers--right">
+                        <li class="slds-item slds-truncate">{!account.BillingStreet}</li>
+                        <li class="slds-item slds-truncate">{!account.BillingCity}</li>
+                      </ul>
+    
+                  </div>
+              	</div>
+            </div>
+        </li>
+        
+    </aura:iteration>
+    </ul>
+    </div>
+</aura:component>

@@ -1,0 +1,18 @@
+<aura:component >
+    <ltng:require styles="{!$Resource.leaflet2 + '/leaflet.css'}" 
+                  scripts="{!$Resource.leaflet2 + '/leaflet.js'}"
+                  afterScriptsLoaded="{!c.scriptsLoaded}" />
+
+    <!-- The Leaflet map object -->
+    <aura:attribute name="map" type="Object"/>
+    <!-- The Leaflet markers -->
+    <aura:attribute name="markers" type="Object"/>
+    
+    <aura:attribute name="accounts" type="Account[]" />
+
+    <aura:handler action="c.accountsLoaded" event="c:AccountsLoaded" />
+    <aura:handler action="c.selectAccount" event="c:SelectAccount" />
+	
+    <div aura:id="map"></div>
+    
+</aura:component>

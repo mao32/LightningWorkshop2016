@@ -1,0 +1,7 @@
+.THIS {
+	height:100%;    
+}
+
+.THIS >div{
+    height:50%;
+}
